@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: arial, sans-serif;
+    height: 10%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: arial, sans-serif;
+    height: 80%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: arial, sans-serif;
+    height: 10%;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: arial, sans-serif;
+    flex-wrap: wrap;
+}
+
+#kebabas {
+    border-radius: 50px;
+    border: 1px solid gold;
+    width: 50%;
+    height: 50%;
+}
