@@ -1,48 +1,45 @@
 body {
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    height: 100vh;
+    text-align: center;
+    min-height: 100vh;
     margin: 0;
+    font-family: arial, sans-serif;
 }
 
-header {
+header, footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: arial, sans-serif;
-    height: 10%;
+    padding: 1.25rem 1rem;
+    flex-shrink: 0;
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: arial, sans-serif;
-    height: 80%;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: arial, sans-serif;
-    height: 10%;
+    flex: 1;
 }
 
 .product {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: arial, sans-serif;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
 }
 
-#kebabas {
+.productImg {
     border-radius: 50px;
     border: 1px solid gold;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+#productGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    gap: 24px;
 }
