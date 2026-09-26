@@ -40,7 +40,7 @@ body {
     text-align: center;
     min-height: 100dvh;
     margin: 0;
-    background-color: var(--backgrounds);
+    background-color: var(--background);
     font-family: 'Work Sans';
     font-weight: 400;
     color: var(--text);
@@ -77,15 +77,16 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 80%;
     background: #fff;
     border-radius: 24px;
     padding: 1rem;
+    padding-top: 0;
     box-shadow: 0 2px 12px rgba(34, 34, 34, 0.08);
+    transition: transform 0.1s ease;
 }
 .product:hover {
     transform: scale(1.125);
-    transition-duration: 0.1s;
+    transition: transform 0.1s ease;
 }
 
 .productImg {
@@ -100,6 +101,7 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 220px);
     gap: 24px;
+    anchor-name: --grid;
 }
 
 .addToCartButton{
@@ -127,4 +129,63 @@ main {
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--text);
+}
+
+.productPopover{
+    border: 1px solid var(--text);
+    border-radius: 24px;
+    position-anchor: --grid;
+    position-area: center;
+    width: calc(anchor-size(width) * 0.9);
+    height: calc(anchor-size(height) * 0.5);
+    box-sizing: border-box;
+    padding: 1rem;
+    padding-top: 0;
+    opacity: 0;
+    transform: scale(0.95);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        display 0.2s allow-discrete,
+        overlay 0.2s allow-discrete;
+}
+
+.productPopover:popover-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@starting-style {
+    .productPopover:popover-open {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.productPopover .productImg {
+    border-radius: 16px;
+    border: none;
+    width: 45%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.productDescription {
+    display: flow-root;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.productDescription .description{
+    margin: 0;
+}
+
+.allergens {
+    font-size: 0.875rem;
+    color: #666;
+    clear: both;
 }
