@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="lt">
   <head>
     <meta charset="utf-8">
-    <title>UI1 - checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI1</title>
     <link rel="stylesheet" href="style.css">
+    <script src="cart.js" defer></script>
   </head>
   <body>
-    <header>Parduotuvė su viena prekė</header>
+    <header>
+      <div class="headerDiv">
+        <h4 id="name">Kebabinė</h4>
+        <a href="index.html" class="cartLink">Pagrindinis</a>
+      </div>
+    </header>
     <main>
-      <div class="product">
-        Kebabas lekštėje
-        <img src="kebabas.jpg" alt="Kebabas lekštėje" id="kebabas"/>
-        <p>Kaina: 5.99 €</p>
-        <a href="index.html"><button>Užsisakyti</button></a>
-        
+      <div class="cart">
+        <h5>Jūsų užsakymas</h5>
+        <ul id="cartItems"></ul>
+        <p>Iš viso: <strong id="cartTotal">0.00 €</strong></p>
+        <button class="addToCartButton" onclick="clearCart()">Išvalyti krepšelį</button>
       </div>
     </main>
-    <footer>&copy; 2026 Parduotuvė su viena prekė. Visos teisės saugomos.</footer>
+    <footer>&copy; 2026 Kebabinė. Visos teisės saugomos.</footer>
   </body>
 </html>
