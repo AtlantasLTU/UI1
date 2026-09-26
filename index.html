@@ -14,7 +14,7 @@
           <p class="itemName">Döner kebabas</p>
           <img src="kebabas.jpg" alt="Dioner kebabas" class="productImg"/>
           <p class="price">Kaina: 5.99 €</p>
-          <button class="addToCartButton" popovertarget="kebabas">Užsisakyti</button>
+          <button class="orderButton" popovertarget="kebabas">Užsisakyti</button>
           <div popover id="kebabas" class="productPopover">
             <p class="itemName">Döner kebabas</p>
             <div class="productDescription">
@@ -22,41 +22,94 @@
               <p class="description">Sultinga, ant iešmo kepta mėsa, šviežios daržovės ir mūsų firminis česnakinis padažas, suvynioti į šiltą, traškią duoną. Kiekvienas kebabas gaminamas tik gavus užsakymą, todėl jį gaunate karštą ir šviežią. Sotus pasirinkimas pietums ar vakarienei, kuriam sunku atsispirti.</p>
               <p class="allergens"><strong>Alergenai:</strong> glitimas (kviečiai), pienas, kiaušiniai, sezamo sėklos.</p>
             </div>
+            <form action="" method="get" class="orderForm">
+                <fieldset class="sauce">
+                  <legend>Padažas:</legend>
+                  <div class="sauceOptions">
+                    <label class="sauceOption"><input type="radio" name="padazas" value="cesnakinis" checked> Česnakinis</label>
+                    <label class="sauceOption"><input type="radio" name="padazas" value="pikantiskas"> Pikantiškas</label>
+                    <label class="sauceOption"><input type="radio" name="padazas" value="astrus"> Aštrus</label>
+                    <label class="sauceOption"><input type="radio" name="padazas" value="misrus"> Mišrus</label>
+                    <label class="sauceOption"><input type="radio" name="padazas" value="be"> Be padažo</label>
+                  </div>
+                </fieldset>
+                <div class="quantity">
+                  <p>Kiekis:</p>
+                  <div class="qtyStepper">
+                    <button type="button" class="qtyBtn" aria-label="Mažinti kiekį" onclick="this.nextElementSibling.stepDown()">−</button>
+                    <input type="number" class="qtyInput" name="kebabas" value="1" min="1" max="10" aria-label="Kiekis">
+                    <button type="button" class="qtyBtn" aria-label="Didinti kiekį" onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </div>
+                <button type="submit" class="addToCartButton" popovertarget="kebabas" popovertargetaction="hide">Į krepšelį</button>
+            </form>
           </div>
         </div>
         <div class="product">
           <p class="itemName">Bulvytės fri</p>
           <img src="bulvytes.jpg" alt="Bulvytės fri" class="productImg"/>
           <p class="price">Kaina: 1.99 €</p>
-          <button class="addToCartButton" popovertarget="bulvytes fri">Užsisakyti</button>
-          <div popover id="bulvytes fri" class="productPopover">
+          <button class="orderButton" popovertarget="bulvytesfri">Užsisakyti</button>
+          <div popover id="bulvytesfri" class="productPopover">
             <p class="itemName">Bulvytės fri</p>
             <div class="productDescription">
               <img src="bulvytes.jpg" alt="Bulvytės fri" class="productImg"/>
               <p class="description">Auksinės bulvytės fri, traškios išorėje ir purios viduje, iškeptos karštame aliejuje ir lengvai pasūdytos. Puikiai tinka kaip užkandis arba kaip garnyras prie kebabo. Paragaukite jas su kečupu, majonezu ar mūsų česnakiniu padažu.</p>
-              <p class="allergens"><p class="allergens"><strong>Alergenai:</strong> nėra.</p>
+              <p class="allergens"><strong>Alergenai:</strong> nėra.</p>
             </div>
+            <form action="" method="get" class="orderForm">
+              <fieldset class="sauce">
+                <legend>Padažas:</legend>
+                <div class="sauceOptions">
+                  <label class="sauceOption"><input type="radio" name="padazas" value="cesnakinis" checked> Česnakinis</label>
+                  <label class="sauceOption"><input type="radio" name="padazas" value="pikantiskas"> Pikantiškas</label>
+                  <label class="sauceOption"><input type="radio" name="padazas" value="astrus"> Aštrus</label>
+                  <label class="sauceOption"><input type="radio" name="padazas" value="misrus"> Mišrus</label>
+                  <label class="sauceOption"><input type="radio" name="padazas" value="be"> Be padažo</label>
+                </div>
+              </fieldset>
+              <div class="quantity">
+                <p>Kiekis:</p>
+                <div class="qtyStepper">
+                  <button type="button" class="qtyBtn" aria-label="Mažinti kiekį" onclick="this.nextElementSibling.stepDown()">−</button>
+                  <input type="number" class="qtyInput" name="bulvytesfri" value="1" min="1" max="10" aria-label="Kiekis">
+                  <button type="button" class="qtyBtn" aria-label="Didinti kiekį" onclick="this.previousElementSibling.stepUp()">+</button>
+                </div>
+              </div>
+              <button type="submit" class="addToCartButton" popovertarget="bulvytesfri" popovertargetaction="hide">Į krepšelį</button>
+            </form>
           </div>
         </div>
         <div class="product">
           <p class="itemName">Pepsi</p>
           <img src="pepsi.webp" alt="Pepsi" class="productImg"/>
           <p class="price">Kaina: 1.50 €</p>
-          <button class="addToCartButton" popovertarget="pepsi">Užsisakyti</button>
+          <button class="orderButton" popovertarget="pepsi">Užsisakyti</button>
           <div popover id="pepsi" class="productPopover">
-            <p class="itemName">Pepsi</p>
+            <p class="itemName">Pepsi (500 ml)</p>
             <div class="productDescription">
               <img src="pepsi.webp" alt="Pepsi" class="productImg"/>
-              <p class="description">Gaivus, putojantis Pepsi, patiekiamas gerai atšaldytas. Klasikinis kolos skonis puikiai atgaivina karštą dieną. Tobulai dera prie sotaus kebabo ar traškių bulvyčių.</p>
+              <p class="description">Gaivus, gazuotas Pepsi, patiekiamas gerai atšaldytas. Klasikinis kolos skonis puikiai atgaivina karštą dieną. Tobulai dera prie sotaus kebabo ar traškių bulvyčių.</p>
               <p class="allergens"><strong>Alergenai:</strong> nėra.</p>
             </div>
+            <form action="" method="get" class="orderForm">
+                <div class="quantity">
+                  <p>Kiekis:</p>
+                  <div class="qtyStepper">
+                    <button type="button" class="qtyBtn" aria-label="Mažinti kiekį" onclick="this.nextElementSibling.stepDown()">−</button>
+                    <input type="number" class="qtyInput" name="pepsi" value="1" min="1" max="10" aria-label="Kiekis">
+                    <button type="button" class="qtyBtn" aria-label="Didinti kiekį" onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </div>
+                <button type="submit" class="addToCartButton" popovertarget="pepsi" popovertargetaction="hide">Į krepšelį</button>
+            </form>
           </div>
         </div>
         <div class="product">
           <p class="itemName">Ledai</p>
           <img src="ledai.jpg" alt="Ledai" class="productImg"/>
           <p class="price">Kaina: 1.00 €</p>
-          <button class="addToCartButton" popovertarget="ledai">Užsisakyti</button>
+          <button class="orderButton" popovertarget="ledai">Užsisakyti</button>
           <div popover id="ledai" class="productPopover">
             <p class="itemName">Ledai</p>
             <div class="productDescription">
@@ -64,6 +117,25 @@
               <p class="description">Kreminiai, švelnaus skonio ledai: saldi ir gaivi valgio pabaiga. Jie puikiai atvėsina karštą dieną ir patinka tiek vaikams, tiek suaugusiems. Nepamirškite palikti vietos desertui!</p>
               <p class="allergens"><strong>Alergenai:</strong> pienas. Gali būti riešutų ir sojos pėdsakų.</p>
             </div>
+            <form action="" method="get" class="orderForm">
+                <fieldset class="sauce">
+                  <legend>Skonis:</legend>
+                  <div class="sauceOptions">
+                    <label class="sauceOption"><input type="radio" name="skonis" value="vanilinis" checked>Vaniliniai</label>
+                    <label class="sauceOption"><input type="radio" name="skonis" value="sokoladinis">Šokoladiniai</label>
+                    <label class="sauceOption"><input type="radio" name="skonis" value="braskinis">Braškiniai</label>
+                  </div>
+                </fieldset>
+                <div class="quantity">
+                  <p>Kiekis:</p>
+                  <div class="qtyStepper">
+                    <button type="button" class="qtyBtn" aria-label="Mažinti kiekį" onclick="this.nextElementSibling.stepDown()">−</button>
+                    <input type="number" class="qtyInput" name="ledai" value="1" min="1" max="10" aria-label="Kiekis">
+                    <button type="button" class="qtyBtn" aria-label="Didinti kiekį" onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </div>
+                <button type="submit" class="addToCartButton" popovertarget="bulvytesfri" popovertargetaction="hide">Į krepšelį</button>
+            </form>
           </div>
         </div>
       </div>

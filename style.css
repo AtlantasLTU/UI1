@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
 
-#name {
+#name{
     font-weight: 500;
     margin: 0;
 }
@@ -34,7 +34,7 @@ h5 {font-size: 1.333rem; /* 21.28px */}
 
 small {font-size: 0.750rem; /* 12px */}
 
-body {
+body{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -56,7 +56,7 @@ header{
     background-color: var(--primary);
 }
 
-footer {
+footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,14 +66,14 @@ footer {
     background-color: var(--text);
 }
 
-main {
+main{
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
 }
 
-.product {
+.product{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,12 +84,12 @@ main {
     box-shadow: 0 2px 12px rgba(34, 34, 34, 0.08);
     transition: transform 0.1s ease;
 }
-.product:hover {
+.product:hover{
     transform: scale(1.125);
     transition: transform 0.1s ease;
 }
 
-.productImg {
+.productImg{
     border-radius: 16px;
     border: none;
     width: 100%;
@@ -97,14 +97,14 @@ main {
     object-fit: cover;
 }
 
-#productGrid {
+#productGrid{
     display: grid;
     grid-template-columns: repeat(2, 220px);
     gap: 24px;
     anchor-name: --grid;
 }
 
-.addToCartButton{
+.orderButton{
     background: var(--primary);
     color: #fff;
     border: none;
@@ -115,11 +115,28 @@ main {
     cursor: pointer;
 }
 
+.orderButton:hover{
+    background: var(--primary-dark);
+}
+
+.addToCartButton{
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
 .addToCartButton:hover{
     background: var(--primary-dark);
 }
 
-.price {
+.price{
     font-weight: 400;
     font-size: 1.25rem;
     color: var(--text);
@@ -149,21 +166,23 @@ main {
         transform 0.2s ease,
         display 0.2s allow-discrete,
         overlay 0.2s allow-discrete;
+
+    scrollbar-width: none;
 }
 
-.productPopover:popover-open {
+.productPopover:popover-open{
     opacity: 1;
     transform: scale(1);
 }
 
-@starting-style {
+@starting-style{
     .productPopover:popover-open {
         opacity: 0;
         transform: scale(0.95);
     }
 }
 
-.productPopover .productImg {
+.productPopover .productImg{
     border-radius: 16px;
     border: none;
     width: 45%;
@@ -174,7 +193,7 @@ main {
     margin-bottom: 1rem;
 }
 
-.productDescription {
+.productDescription{
     display: flow-root;
     text-align: justify;
     hyphens: auto;
@@ -184,8 +203,133 @@ main {
     margin: 0;
 }
 
-.allergens {
+.allergens{
     font-size: 0.875rem;
     color: #666;
     clear: both;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.quantity p{
+    font-weight: 500;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.sauce{
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.sauce legend{
+    text-align: left;
+    font-weight: 500;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.sauceOptions{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sauceOption{
+    padding: 0.4rem 1rem;
+    margin: 0.2rem;
+    width: fit-content;
+    border: 2px solid var(--secondary);
+    border-radius: 1000px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.sauceOption input{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.sauceOption:hover{
+    border-color: var(--primary);
+}
+
+.sauceOption:has(input:checked){
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.sauceOption:has(input:focus-visible){
+    outline: 2px solid var(--primary);
+}
+
+.qtyStepper{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: fit-content;
+    margin: 0.2rem;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0.2rem;
+    border: 2px solid var(--secondary);
+    border-radius: 1000px;
+    transition: border-color 0.15s ease;
+}
+
+.qtyStepper:hover,
+.qtyStepper:focus-within{
+    border-color: var(--primary);
+}
+
+.qtyBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.qtyBtn:hover{
+    background: var(--primary);
+    color: #fff;
+}
+
+.qtyInput{
+    width: 2.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    appearance: textfield;
+}
+
+.qtyInput::-webkit-inner-spin-button,
+.qtyInput::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
 }
