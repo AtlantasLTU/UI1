@@ -1,19 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;600;500;450;400;300;200;100&family=Work+Sans:wght@400;500;600&display=swap');
+
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Fraunces';
+  font-weight: 700;
+}
+
+#name {
+    font-weight: 500;
+    margin: 0;
+}
+
+html 
+{
+    font-size: 100%;
+    --text: #222222;
+    --background: #FAF7F2;
+    --primary: #D9542B;
+    --secondary: #f0c981;
+    --accent: #ebe353;
+    --primary-dark: #B53E1A;
+} /* 16px */
+
+h1 {font-size: 4.210rem; /* 67.36px */}
+
+h2 {font-size: 3.158rem; /* 50.56px */}
+
+h3 {font-size: 2.369rem; /* 37.92px */}
+
+h4 {font-size: 1.777rem; /* 28.48px */}
+
+h5 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}
+
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
-    font-family: arial, sans-serif;
+    background-color: var(--backgrounds);
+    font-family: 'Work Sans';
+    font-weight: 400;
+    color: var(--text);
 }
 
-header, footer {
+header{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1.25rem 1rem;
     flex-shrink: 0;
+    color: var(--text);
+    background-color: var(--primary);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem 1rem;
+    flex-shrink: 0;
+    color: var(--background);
+    background-color: var(--text);
 }
 
 main {
@@ -27,12 +77,20 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
+    background: #fff;
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: 0 2px 12px rgba(34, 34, 34, 0.08);
+}
+.product:hover {
+    transform: scale(1.125);
+    transition-duration: 0.1s;
 }
 
 .productImg {
-    border-radius: 50px;
-    border: 1px solid gold;
+    border-radius: 16px;
+    border: none;
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -42,4 +100,31 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 220px);
     gap: 24px;
+}
+
+.addToCartButton{
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+.addToCartButton:hover{
+    background: var(--primary-dark);
+}
+
+.price {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--text);
+}
+
+.itemName{
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text);
 }

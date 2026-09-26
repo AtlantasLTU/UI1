@@ -2,36 +2,40 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI1</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>Kebabinė</header>
+    <header><h4 id="name">Kebabinė</h4></header>
     <main>
       <div id="productGrid">
         <div class="product">
-          Kebabas lekštėje
-          <img src="kebabas.jpg" alt="Kebabas lekštėje" class="productImg"/>
-          <p>Kaina: 5.99 €</p>
-          <a href="checkout.html"><button>Užsisakyti</button></a>
+          <p class="itemName">Döner kebabas</p>
+          <img src="kebabas.jpg" alt="Dioner kebabas" class="productImg"/>
+          <p class="price">Kaina: 5.99 €</p>
+          <button class="addToCartButton" popovertarget="kebabas">Užsisakyti</button>
+          <div popover id="kebabas" class="productPopover">SIGMA
+            
+          </div>
         </div>
         <div class="product">
-          Bulvytės fri
+          <p class="itemName">Bulvytės fri</p>
           <img src="bulvytes.jpg" alt="Bulvytės fri" class="productImg"/>
-          <p>Kaina: 1.99 €</p>
-          <a href="checkout.html"><button>Užsisakyti</button></a>
+          <p class="price">Kaina: 1.99 €</p>
+          <a href="checkout.html"><button class="addToCartButton">Užsisakyti</button></a>
         </div>
         <div class="product">
-          Pepsi
+          <p class="itemName">Pepsi</p>
           <img src="pepsi.webp" alt="Pepsi" class="productImg"/>
-          <p>Kaina: 1.50 €</p>
-          <a href="checkout.html"><button>Užsisakyti</button></a>
+          <p class="price">Kaina: 1.50 €</p>
+          <a href="checkout.html"><button class="addToCartButton">Užsisakyti</button></a>
         </div>
         <div class="product">
-          Ledai
+          <p class="itemName">Ledai</p>
           <img src="ledai.jpg" alt="Ledai" class="productImg"/>
-          <p>Kaina: 1.00 €</p>
-          <a href="checkout.html"><button>Užsisakyti</button></a>
+          <p class="price">Kaina: 1.00 €</p>
+          <a href="checkout.html"><button class="addToCartButton">Užsisakyti</button></a>
         </div>
       </div>
       
