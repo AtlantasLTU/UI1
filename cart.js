@@ -22,12 +22,22 @@ document.querySelectorAll('.orderForm').forEach(form => {
 const list = document.getElementById('cartItems');
 if (list) {
   let total = 0;
-  for (const item of cart) {
+  cart.forEach((item, index) => {
     const sum = item.price * item.qty;
     total += sum;
-    list.innerHTML += `<li>${item.qty} × ${item.name} ${item.option} – ${sum.toFixed(2)} €</li>`;
-  }
+    list.innerHTML += `
+      <li>
+        <span>${item.qty} × ${item.name} ${item.option} – ${sum.toFixed(2)} €</span>
+        <button class="removeButton" onclick="removeItem(${index})" aria-label="Pašalinti">✕</button>
+      </li>`;
+  });
   document.getElementById('cartTotal').textContent = total.toFixed(2) + ' €';
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);   // remove 1 item at that position
+  localStorage.setItem('cart', JSON.stringify(cart));
+  location.reload();
 }
 
 function clearCart() {

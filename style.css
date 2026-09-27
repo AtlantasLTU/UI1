@@ -20,6 +20,7 @@ html
     --secondary: #f0c981;
     --accent: #ebe353;
     --primary-dark: #B53E1A;
+    --zoom: 1;
 } /* 16px */
 
 h1 {font-size: 4.210rem; /* 67.36px */}
@@ -38,7 +39,7 @@ body{
     display: flex;
     flex-direction: column;
     text-align: center;
-    min-height: 100dvh;
+    min-height: calc(100dvh/var(--zoom));
     margin: 0;
     background-color: var(--background);
     font-family: 'Work Sans';
@@ -86,7 +87,6 @@ main{
 }
 .product:hover{
     transform: scale(1.125);
-    transition: transform 0.1s ease;
 }
 
 .productImg{
@@ -149,7 +149,7 @@ main{
 }
 
 .productPopover{
-    border: 1px solid var(--text);
+    border: none;
     border-radius: 24px;
     position-anchor: --grid;
     position-area: center;
@@ -166,6 +166,20 @@ main{
         transform 0.2s ease,
         display 0.2s allow-discrete,
         overlay 0.2s allow-discrete;
+    
+    box-shadow:
+        0 12px 40px rgba(34, 34, 34, 0.18),
+        0 2px 8px rgba(34, 34, 34, 0.08);
+}
+
+.productPopover::backdrop{
+    background: rgb(34 34 34 / 0);
+    backdrop-filter: blur(0);
+    transition:
+        background 0.2s ease,
+        display 0.2s allow-discrete,
+        backdrop-filter 0.2s ease,
+        overlay 0.2s allow-discrete;
 }
 
 .productPopover:popover-open{
@@ -173,10 +187,20 @@ main{
     transform: scale(1);
 }
 
+.productPopover:popover-open::backdrop{
+    background: rgb(34 34 34 / 0.35);
+    backdrop-filter: blur(4px);
+}
+
 @starting-style{
     .productPopover:popover-open {
         opacity: 0;
         transform: scale(0.95);
+    }
+
+    .productPopover:popover-open::backdrop{
+        background: rgb(34 34 34 / 0);
+        backdrop-filter: blur(0);
     }
 }
 
@@ -184,12 +208,6 @@ main{
     height: 100%;
     overflow-y: auto;
     scrollbar-width: none;
-    mask-image: linear-gradient(
-        transparent,
-        #000 1rem,
-        #000 calc(99%),
-        transparent
-    );
 }
 
 .productPopover .itemName{
@@ -349,11 +367,12 @@ main{
 }
 
 .cart{
-    width: 464px;
+    width: 100%;
+    max-width: 464px;
     margin: 1rem;
     padding: 1.5rem;
     background: #fff;
-    border-radius: 25px;
+    border-radius: 24px;
     box-shadow: 0 2px 12px rgba(34, 34, 34, 0.08);
     text-align: left;
     box-sizing: border-box;
@@ -361,7 +380,7 @@ main{
 
 .cart h5{
     margin: 0 0 1rem;
-    font-family: Work Sans;
+    font-family: "Work Sans";
 }
 
 #cartItems{
@@ -369,13 +388,34 @@ main{
     margin: 0;
     padding: 0;
     max-height: 60vh;
-    overflow: scroll;
+    overflow: auto;
     scrollbar-width: none;
 }
 
 #cartItems li{
+    display: flex;
     padding: 0.75rem 0;
     border-bottom: 1px solid #eee;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.removeButton{
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    color: #999;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.removeButton:hover{
+    background: var(--secondary);
+    color: var(--primary);
 }
 
 #cartItems:empty::before{
@@ -414,4 +454,94 @@ main{
     align-items: center;
     width: 100%;
     max-width: 440px;
+}
+
+@media (max-width: 599px) {
+    #productGrid{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .product{
+        padding: 0.75rem;
+        padding-top: 0;
+    }
+
+    .itemName,
+    .price{
+        font-size: 1rem;
+    }
+
+    .orderButton{
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .productPopover{
+        max-height: 85dvh;   /* never taller than the screen */
+        height:fit-content;
+    }
+
+    .productPopover .productImg{
+        float: none;         /* image on top, text below */
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* no hover zoom on touch screens (this one isn't a width query) */
+@media (hover: none) {
+    .product:hover{
+        transform: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .headerDiv{
+        max-width: 880px;
+    }
+    
+    #productGrid{
+        grid-template-columns: repeat(4, 220px);
+    }
+
+    .productPopover{
+        height: fit-content;
+        max-height: 70dvh;
+    }
+
+    .productDescription{
+        display: flex;
+        align-items: flex-start;   /* image keeps its own height */
+        gap: 1rem;
+    }
+
+    .popoverInfo{
+        flex: 1;
+        min-width: 0;
+    }
+
+    .popoverInfo .allergens{
+        clear: none;
+    }
+
+    .cart {
+        max-width: 928px;
+    }
+
+    .qtyL {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1440px) {
+    html{
+        --zoom: 1.333;
+    }
+    body{
+        zoom: var(--zoom);
+    }
 }
